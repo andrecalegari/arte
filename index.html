@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANDRÉ CALEGARI - PUNK | OBRAS BRUTAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap");
+
+      body {
+        font-family: "Space Mono", monospace;
+        background-color: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .punk-font {
+        font-family: "VT323", monospace;
+      }
+
+      .glitch {
+        position: relative;
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .glitch::before {
+        left: 2px;
+        text-shadow: -2px 0 #ff00ff;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+      }
+
+      .glitch::after {
+        left: -2px;
+        text-shadow: -2px 0 #00ffff;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 5s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim {
+        0% {
+          clip: rect(31px, 9999px, 94px, 0);
+        }
+        10% {
+          clip: rect(112px, 9999px, 76px, 0);
+        }
+        20% {
+          clip: rect(85px, 9999px, 77px, 0);
+        }
+        30% {
+          clip: rect(27px, 9999px, 97px, 0);
+        }
+        40% {
+          clip: rect(64px, 9999px, 98px, 0);
+        }
+        50% {
+          clip: rect(61px, 9999px, 85px, 0);
+        }
+        60% {
+          clip: rect(99px, 9999px, 114px, 0);
+        }
+        70% {
+          clip: rect(34px, 9999px, 115px, 0);
+        }
+        80% {
+          clip: rect(98px, 9999px, 129px, 0);
+        }
+        90% {
+          clip: rect(43px, 9999px, 96px, 0);
+        }
+        100% {
+          clip: rect(82px, 9999px, 64px, 0);
+        }
+      }
+
+      @keyframes glitch-anim2 {
+        0% {
+          clip: rect(65px, 9999px, 119px, 0);
+        }
+        10% {
+          clip: rect(79px, 9999px, 85px, 0);
+        }
+        20% {
+          clip: rect(101px, 9999px, 70px, 0);
+        }
+        30% {
+          clip: rect(114px, 9999px, 101px, 0);
+        }
+        40% {
+          clip: rect(80px, 9999px, 119px, 0);
+        }
+        50% {
+          clip: rect(64px, 9999px, 90px, 0);
+        }
+        60% {
+          clip: rect(105px, 9999px, 74px, 0);
+        }
+        70% {
+          clip: rect(104px, 9999px, 83px, 0);
+        }
+        80% {
+          clip: rect(84px, 9999px, 66px, 0);
+        }
+        90% {
+          clip: rect(107px, 9999px, 99px, 0);
+        }
+        100% {
+          clip: rect(86px, 9999px, 107px, 0);
+        }
+      }
+
+      .scanlines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.25) 50%
+        );
+        background-size: 100% 2px;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9998;
+      }
+
+      .punk-border {
+        border: 4px solid #ff0033;
+        box-shadow: 8px 8px 0 #000, 8px 8px 0 4px #ff0033;
+      }
+
+      .punk-border-thin {
+        border: 2px solid #ff0033;
+      }
+
+      .punk-bg {
+        background-color: #000;
+        background-image: linear-gradient(
+            rgba(255, 0, 51, 0.3) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 0, 51, 0.3) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+
+      .hover-punk:hover {
+        color: #ff0033;
+        text-decoration: line-through;
+      }
+
+      .marquee {
+        animation: marquee 15s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <!-- Visual Effects -->
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+
+    <!-- Header -->
+    <header class="punk-bg sticky top-0 z-50 border-b-2 border-red-500">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="text-3xl punk-font glitch" data-text="PUNK_ART">
+          PUNK_ART
+        </div>
+
+        <nav class="hidden md:flex space-x-6">
+          <!--<a href="#works" class="hover-punk uppercase text-sm tracking-widest"
+            >OBRAS</a
+          >
+          <a href="#about" class="hover-punk uppercase text-sm tracking-widest"
+            >SOBRE</a
+          >
+          <a href="#shows" class="hover-punk uppercase text-sm tracking-widest"
+            >SHOWS</a
+          >
+          <a
+            href="#contact"
+            class="hover-punk uppercase text-sm tracking-widest"
+            >CONTATO</a
+          >-->
+        </nav>
+
+        <button class="md:hidden text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden fixed inset-0 bg-black z-40 hidden" id="mobileMenu">
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <!--<a href="#works" class="hover-punk text-2xl punk-font">OBRAS</a>
+        <a href="#about" class="hover-punk text-2xl punk-font">SOBRE</a>
+        <a href="#shows" class="hover-punk text-2xl punk-font">LOJA</a>
+        <a href="#contact" class="hover-punk text-2xl punk-font">CONTATO</a>-->
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+          alt="Punk Art"
+          class="w-full h-full object-cover opacity-40"
+        />
+      </div>
+
+      <div class="relative z-10 text-center px-4">
+        <h1
+          class="text-6xl md:text-8xl punk-font mb-6 glitch"
+          data-text="ARTE_BRUTA"
+        >
+          ARTE_BRUTA
+        </h1>
+        <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
+          DESTRUINDO CONVENÇÕES ATRAVÉS DA ARTE VISUAL
+        </p>
+        <!--<a
+          href="#works"
+          class="inline-block punk-border px-8 py-3 punk-font text-xl hover:bg-red-500 hover:text-black transition-all duration-200"
+        >
+          VER OBRAS
+        </a>-->
+      </div>
+
+      <div class="absolute bottom-10 left-0 right-0 text-center">
+        <div class="animate-bounce">
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="bg-red-500 text-black py-3 overflow-hidden">
+      <div class="flex whitespace-nowrap">
+        <div class="marquee flex items-center">
+          <span class="punk-font text-xl mx-4">✺ ARTE É REVOLUÇÃO ✺</span>
+          <span class="punk-font text-xl mx-4">✺ DESTRUA OS PADRÕES ✺</span>
+          <span class="punk-font text-xl mx-4">✺ SEM CENSURA ✺</span>
+          <span class="punk-font text-xl mx-4">✺ ARTE É REVOLUÇÃO ✺</span>
+          <span class="punk-font text-xl mx-4">✺ DESTRUA OS PADRÕES ✺</span>
+          <span class="punk-font text-xl mx-4">✺ SEM CENSURA ✺</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Works Section -->
+    <section id="works" class="py-20 px-4">
+      <div class="container mx-auto">
+        <h2
+          class="text-4xl punk-font mb-12 text-center glitch"
+          data-text="OBRAS_RECENTES"
+        >
+          OBRAS_RECENTES
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Work 1 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mockup%20obra%20grande%202.jpg?v=1748904529547"
+                alt="Obra Punk 2"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">ELA_VAI_PARTIR</h3>
+              <p class="text-gray-400 mb-3">Spray e tinta óleo sobre tecido em algodão TNG8 (2022)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 350X300X2CM
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 2 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/Generated%20Image%20May%2005%2C%202025%20-%205_04PM.jpeg?v=1749560872962&auto=format&fit=crop&w=745&q=80"
+                alt="OLHO_ABERTO"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">OLHO_ABERTO</h3>
+              <p class="text-gray-400 mb-3">COLAGEM SOBRE PAPEL (2022)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 110X110CM
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 3 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/obra1.png?v=1748904837600"
+                alt="Obra Punk 3"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">ELA_VEM</h3>
+              <p class="text-gray-400 mb-3">ACRÍLICA SOBRE TELA (2025)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 162X96X2CM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Work 4 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/482821424_18321518149165411_7962962387108610248_n.jpg?v=1748904883128"
+                alt="Obra Punk 1"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">RUPTURA_URBANA</h3>
+              <p class="text-gray-400 mb-3">TÉCNICA MISTA SOBRE TELA (2025)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 160X200CM
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 5 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mockuptela%20grande5.jpg?v=1748905034977"
+                alt="Obra Punk 2"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">PSICOFRONTEIRA</h3>
+              <p class="text-gray-400 mb-3">TÉCNICA MISTA SOBRE TELA (2023)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 160X80X2CM
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 6 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/Generated%20Image%20April%2001%2C%202025%20-%203_22PM%20(1).jpeg?v=1748904986795&auto=format&fit=crop&w=1470&q=80"
+                alt="Obra Punk 3"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">ANARQUIA_CROMÁTICA_MORTA</h3>
+              <p class="text-gray-400 mb-3">ÓLEO SOBRE TELA (2023)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 110X80X2CM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="text-center mt-12">
+          <a
+            href="#"
+            class="punk-border px-8 py-3 punk-font text-xl inline-block hover:bg-red-500 hover:text-black transition-all duration-200"
+          >
+            VER TODAS AS OBRAS
+          </a>
+        </div>-->
+      </div>
+    </section>
+    <section id="works" class="py-20 px-4">
+      <div class="container mx-auto">
+        <h2
+          class="text-4xl punk-font mb-12 text-center glitch"
+          data-text="OBRAS_RECENTES"
+        >
+          MUROS_AUTORAIS
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Work 1 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/480396103_18319936225165411_8319369232486607187_n.jpg?v=1748904880619&auto=format&fit=crop&w=745&q=80"
+                alt="Obra Punk 1"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">NAVEGADORES</h3>
+              <p class="text-gray-400 mb-3">TÉCNICA MISTA SOBRE MURO (2023)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 1500X1000CM
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 2 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/cavalo%20mura%203l.jpg?v=1748904910189&auto=format&fit=crop&w=745&q=80"
+                alt="Obra Punk 2"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">GEMÊOS</h3>
+              <p class="text-gray-400 mb-3">SPRAY EM CHAPA DE METAL (2022)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 280X500
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 3 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/ChatGPT%20Image%205%20de%20jun.%20de%202025%2C%2016_43_59.png?v=1749237972933"
+                alt="Obra Punk 3"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">DISTOPIA_DIGITAL</h3>
+              <p class="text-gray-400 mb-3">ESCULTURA EM METAL (2025)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 200X150X80CM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="text-center mt-12">
+          <a
+            href="#"
+            class="punk-border px-8 py-3 punk-font text-xl inline-block hover:bg-red-500 hover:text-black transition-all duration-200"
+          >
+            VER TODAS AS OBRAS
+          </a>
+        </div>-->
+      </div>
+    </section>
+
+    <section id="works" class="py-20 px-4">
+      <div class="container mx-auto">
+        <h2
+          class="text-4xl punk-font mb-12 text-center glitch"
+          data-text="OBRAS_RECENTES"
+        >
+          MUROS_COMERCIAIS
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Work 1 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/475424133_18320586817165411_6387646587639730999_n.jpg?v=1748904877170&auto=format&fit=crop&w=745&q=80"
+                alt="Obra Punk 1"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">PLACA PARA CLINICA MÉDICA</h3>
+              <p class="text-gray-400 mb-3">TÉCNICA MISTA SOBRE TELA (2023)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 150X200CM
+              </p>
+            </div>
+          </div>
+
+          <!-- Work 2 -->
+          <div class="punk-border bg-black group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/488609258_18324512791165411_6957132553367774348_n.jpg?v=1748904886001&auto=format&fit=crop&w=745&q=80"
+                alt="Obra Punk 2"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="punk-font text-2xl mb-2">
+                MURAL PARA CLINICA INFANTIL
+              </h3>
+              <p class="text-gray-400 mb-3">ESCULTURA EM METAL (2022)</p>
+              <p class="punk-border-thin px-3 py-1 inline-block text-sm">
+                DIMENSÕES: 300X280X10CM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="text-center mt-12">
+          <a
+            href="#"
+            class="punk-border px-8 py-3 punk-font text-xl inline-block hover:bg-red-500 hover:text-black transition-all duration-200"
+          >
+            VER TODAS AS OBRAS
+          </a>
+        </div>-->
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 punk-bg">
+      <div class="container mx-auto max-w-4xl">
+        <h2
+          class="text-4xl punk-font mb-12 text-center glitch"
+          data-text="SOBRE_O_ARTISTA"
+        >
+          SOBRE_O_ARTISTA
+        </h2>
+
+        <div class="md:flex items-center">
+          <div class="md:w-1/3 mb-8 md:mb-0 md:pr-8">
+            <div class="punk-border overflow-hidden">
+              <img
+                src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/1697415064248.jpg?v=1748950086587&auto=format&fit=crop&w=687&q=80"
+                alt="Artista Punk"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+
+          <div class="md:w-2/3">
+            <p class="mb-6">
+              ARTISTA VISUAL PUNK RADICADO NA CIDADE DE SÃO PAULO. MINHA
+              TRAJETÓRIA COMEÇOU NOS PORÕES DA CENA UNDERGROUND, ONDE A ARTE ERA
+              UMA EXTENSÃO DA REVOLTA CONTRA O SISTEMA.
+            </p>
+
+            <p class="mb-6">
+              MINHAS OBRAS SÃO UMA FUSÃO DE TÉCNICAS TRADICIONAIS COM
+              INTERVENÇÕES BRUTAS, UTILIZANDO MATERIAIS RECOLHIDOS DAS RUAS -
+              LATAS AMASSADAS, PLÁSTICOS QUEIMADOS, MADEIRAS DESCARTADAS. CADA
+              PEÇA É UM GRITO CONTRA A OPRESSÃO E A HOMOGENEIZAÇÃO CULTURAL.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+              <div class="punk-border-thin p-3 text-center">
+                <div class="text-2xl punk-font">15+</div>
+                <div class="text-xs uppercase">ANOS NA CENA</div>
+              </div>
+              <div class="punk-border-thin p-3 text-center">
+                <div class="text-2xl punk-font">200+</div>
+                <div class="text-xs uppercase">OBRAS</div>
+              </div>
+              <div class="punk-border-thin p-3 text-center">
+                <div class="text-2xl punk-font">50+</div>
+                <div class="text-xs uppercase">EXPOSIÇÕES</div>
+              </div>
+              <div class="punk-border-thin p-3 text-center">
+                <div class="text-2xl punk-font">∞</div>
+                <div class="text-xs uppercase">REVOLTAS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shows Section -->
+    <section id="shows" class="py-20 px-4">
+      <div class="container mx-auto">
+        <h2
+          class="text-4xl punk-font mb-12 text-center glitch"
+          data-text="PRÓXIMOS_SHOWS"
+        >
+          PRÓXIMOS_SHOWS
+        </h2>
+
+        <div class="max-w-3xl mx-auto">
+          <!-- Show 1 -->
+          <div class="punk-border-thin mb-6">
+            <div class="md:flex">
+              <div
+                class="md:w-1/4 punk-bg p-4 flex items-center justify-center"
+              >
+                <div class="text-center">
+                  <div class="text-3xl punk-font">15</div>
+                  <div class="text-sm uppercase">OUT</div>
+                  <div class="text-xs">2023</div>
+                </div>
+              </div>
+              <div class="md:w-2/4 p-4 border-r border-red-500">
+                <h3 class="punk-font text-xl mb-1">GALERIA DO CAOS</h3>
+                <p class="text-sm">SÃO PAULO - SP</p>
+              </div>
+              <div class="md:w-1/4 p-4 flex items-center justify-center">
+                <a
+                  href="#"
+                  class="punk-border-thin px-4 py-1 text-sm hover:bg-red-500 hover:text-black transition-all duration-200"
+                >
+                  INFO
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Show 2 -->
+          <div class="punk-border-thin mb-6">
+            <div class="md:flex">
+              <div
+                class="md:w-1/4 punk-bg p-4 flex items-center justify-center"
+              >
+                <div class="text-center">
+                  <div class="text-3xl punk-font">28</div>
+                  <div class="text-sm uppercase">NOV</div>
+                  <div class="text-xs">2023</div>
+                </div>
+              </div>
+              <div class="md:w-2/4 p-4 border-r border-red-500">
+                <h3 class="punk-font text-xl mb-1">CENTRO CULTURAL ANARQUIA</h3>
+                <p class="text-sm">RIO DE JANEIRO - RJ</p>
+              </div>
+              <div class="md:w-1/4 p-4 flex items-center justify-center">
+                <a
+                  href="#"
+                  class="punk-border-thin px-4 py-1 text-sm hover:bg-red-500 hover:text-black transition-all duration-200"
+                >
+                  INFO
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Show 3 -->
+          <div class="punk-border-thin">
+            <div class="md:flex">
+              <div
+                class="md:w-1/4 punk-bg p-4 flex items-center justify-center"
+              >
+                <div class="text-center">
+                  <div class="text-3xl punk-font">10</div>
+                  <div class="text-sm uppercase">DEZ</div>
+                  <div class="text-xs">2023</div>
+                </div>
+              </div>
+              <div class="md:w-2/4 p-4 border-r border-red-500">
+                <h3 class="punk-font text-xl mb-1">FESTIVAL ANTISSISTEMA</h3>
+                <p class="text-sm">BELO HORIZONTE - MG</p>
+              </div>
+              <div class="md:w-1/4 p-4 flex items-center justify-center">
+                <a
+                  href="#"
+                  class="punk-border-thin px-4 py-1 text-sm hover:bg-red-500 hover:text-black transition-all duration-200"
+                >
+                  INFO
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 punk-bg">
+      <div class="container mx-auto max-w-4xl">
+        <h2
+          class="text-4xl punk-font mb-12 text-center glitch"
+          data-text="CONTATO"
+        >
+          CONTATO
+        </h2>
+
+        <div class="md:flex">
+          <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+            <h3 class="punk-font text-2xl mb-6">ENVIE UMA MENSAGEM</h3>
+
+            <form>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  placeholder="NOME"
+                  class="w-full bg-black punk-border-thin px-4 py-3 focus:outline-none focus:bg-red-500 focus:text-black transition-all duration-200"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="email"
+                  placeholder="EMAIL"
+                  class="w-full bg-black punk-border-thin px-4 py-3 focus:outline-none focus:bg-red-500 focus:text-black transition-all duration-200"
+                />
+              </div>
+              <div class="mb-4">
+                <textarea
+                  placeholder="MENSAGEM"
+                  rows="5"
+                  class="w-full bg-black punk-border-thin px-4 py-3 focus:outline-none focus:bg-red-500 focus:text-black transition-all duration-200"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="punk-border px-6 py-3 punk-font hover:bg-red-500 hover:text-black transition-all duration-200"
+              >
+                ENVIAR
+              </button>
+            </form>
+          </div>
+
+          <div class="md:w-1/2">
+            <h3 class="punk-font text-2xl mb-6">REDES SOCIAIS</h3>
+
+            <div class="space-y-4">
+              <a href="#" class="flex items-center hover-punk">
+                <span
+                  class="w-10 h-10 punk-border-thin flex items-center justify-center mr-4"
+                >
+                  <i class="fab fa-instagram"></i>
+                </span>
+                <span>@PUNK_ARTIST</span>
+              </a>
+
+              <a href="#" class="flex items-center hover-punk">
+                <span
+                  class="w-10 h-10 punk-border-thin flex items-center justify-center mr-4"
+                >
+                  <i class="fab fa-bandcamp"></i>
+                </span>
+                <span>BANDCAMP/PUNKART</span>
+              </a>
+
+              <a href="#" class="flex items-center hover-punk">
+                <span
+                  class="w-10 h-10 punk-border-thin flex items-center justify-center mr-4"
+                >
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>YOUTUBE/PUNKART</span>
+              </a>
+
+              <a href="#" class="flex items-center hover-punk">
+                <span
+                  class="w-10 h-10 punk-border-thin flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span>ARTE_PUNK@PROTONMAIL.COM</span>
+              </a>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="punk-font text-xl mb-4">ESTÚDIO</h4>
+              <p class="mb-2">RUA DA REVOLUÇÃO, 666</p>
+              <p>SÃO PAULO - SP</p>
+              <p class="mt-2 text-sm">VISITAS APENAS COM AGENDAMENTO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t-2 border-red-500">
+      <div class="container mx-auto">
+        <div class="text-center">
+          <div class="text-3xl punk-font mb-4">PUNK_ART</div>
+          <p class="text-sm mb-6">© 2023 TODOS OS DIREITOS DESRESPEITADOS</p>
+
+          <div class="flex justify-center space-x-6">
+            <a href="#" class="hover-punk">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="hover-punk">
+              <i class="fab fa-bandcamp"></i>
+            </a>
+            <a href="#" class="hover-punk">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="hover-punk">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document.querySelector("button").addEventListener("click", function () {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.add("hidden");
+        });
+      });
+
+      // Glitch effect on random intervals
+      setInterval(() => {
+        const glitches = document.querySelectorAll(".glitch");
+        glitches.forEach((glitch) => {
+          if (Math.random() > 0.8) {
+            glitch.classList.add("glitch-active");
+            setTimeout(() => {
+              glitch.classList.remove("glitch-active");
+            }, 200);
+          }
+        });
+      }, 3000);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

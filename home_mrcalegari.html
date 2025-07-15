@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Calegari</title>
+  <style>
+    /* Reset e estilos básicos */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111; /* Fundo preto */
+      color: #fff; /* Texto branco */
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .text-section {
+      --flex: 1;
+      max-width: 600px;
+      text-align: left;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #bbb;
+      margin-bottom: 0.5rem;
+    }
+
+    .info {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .buttons {
+      margin: 0rem 0;
+    }
+
+    .buttons a {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #fff;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      text-transform: uppercase;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #333;
+      border-color: #333;
+    }
+
+    .image-section {
+      flex: 1;
+      max-width: 600px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #fff;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-section, .image-section {
+        max-width: 100%;
+        padding: 0.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .buttons a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .buttons a {
+        font-size: 0.8rem;
+      }
+    }
+    .dropdown {
+      margin-top: 1rem;
+    }
+
+    .dropdown select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .menu {
+      text-align: left;
+      width: 200px;
+      margin-top:69px;
+    }
+
+    .menu-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .menu-title::before {
+      content: "▾ ";
+      display: inline-block;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+    }
+
+    .menu-title.active::before {
+      transform: rotate(-90deg);
+    }
+
+    .menu-links {
+      display: none;
+      list-style: none;
+      padding-left: 1rem;
+      font-size: 1rem;
+    }
+
+    .menu-links.active {
+      display: block;
+    }
+
+    .menu-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-links a {
+      text-decoration: none;
+      color: #bbb;
+      transition: color 0.3s;
+    }
+
+    .menu-links a:hover {
+      color: #fff;
+    }
+
+    .menu-footer {
+      margin-top: 2rem;
+    }
+
+    .menu-footer a {
+      display: block;
+      text-decoration: none;
+      color: #bbb;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .menu-footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-section">
+      <h1>andre calegari</h1>
+      <p>'Transitoriedade'</p>
+      <p>docs + notes</p>
+      <p>+ certificado de auntênticidade</p>
+      <p class="info">Spray e óle obre tela - 2025</p>
+      <br>
+      <div class="buttons">
+        <a href="https://useful-earthy-canary.glitch.me/obra.html?title=TRANSITORIEDADE&price=R$3569.50&size=110x89cm&technique=Spray+e+Óleo+e+Pastel&description=Peça+única&image=https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250625_170131%20(1).jpg?v=1750960458544&thumbnails=https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250625_170131%20(1).jpg?v=1750960458544,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250625_165955.jpg?v=1750953448311,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250625_170004.jpg?v=1750953450557,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250625_165906.jpg?v=1750953462856,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250625_170014.jpg?v=1750953452643,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/1750944554201.jpg?v=1750953465040&availability=sold_out">ver e comprar</a>
+      </div>
+      <div class="buttons">
+        <a href="https://useful-earthy-canary.glitch.me/mailling.html">JUNTE-SE A LISTA EXCLUSIVA</a>
+      </div>
+      
+      <div class="menu">
+        <div class="menu-title active">previous work</div>
+        <ul class="menu-links">
+          <li><a href="https://useful-earthy-canary.glitch.me/colecao.html?collection=october">outubro '24</a></li>
+          <li><a href="https://useful-earthy-canary.glitch.me/colecao.html?collection=september">setembro '24</a></li>
+          <li><a href="https://useful-earthy-canary.glitch.me/colecao.html?collection=july">julho '24</a></li>
+          <li><a href="https://useful-earthy-canary.glitch.me/colecao.html?collection=february">fevereiro '24</a></li>
+        </ul>
+        <div class="menu-footer">
+          <a href="#about">sobre</a>
+          <a href="#contact">contato</a>
+        </div>
+      </div>
+      
+    </div>
+    <div class="image-section">
+      <img src="https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/1750944554159.jpg?v=1750953315461" alt="Artwork">
+    </div>
+  </div>
+  <script>
+    const menuTitle = document.querySelector('.menu-title');
+    const menuLinks = document.querySelector('.menu-links');
+
+    menuTitle.addEventListener('click', () => {
+      menuTitle.classList.toggle('active');
+      menuLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

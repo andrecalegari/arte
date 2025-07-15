@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coleções</title>
+  <style>
+    /* Reset e estilos básicos */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111; /* Fundo preto */
+      color: #fff; /* Texto branco */
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #fff;
+      border-radius: 8px;
+    }
+
+    .gallery-item p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #bbb;
+    }
+
+    .gallery-item p.title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    /* Ajustes para o cabeçalho */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    header .logo a {
+      color: #fff;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .gallery-item p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="https://useful-earthy-canary.glitch.me/home_mrcalegari.html">andre calegari</a></div>
+  </header>
+
+  <div class="container">
+    <h1 id="page-title">Gallery</h1>
+    <div class="gallery" id="gallery-container"></div>
+  </div>
+
+  <script>
+    // Configuração de coleções
+    const collections = {
+      october: {
+        title: "Lançamento Outubro 2024",
+        images: [
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/ela%20vem.png?v=1750735389920",
+            alt: "ela vem",
+            title: "ELA VEM",
+            price: "10000.00",
+            size: "180x94cm",
+            technique: "Spray e Óleo",
+            description: "Peça única",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/ela%20vem.png?v=1750735389920,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mockup%20enganosos%20mulher%20janaina2.jpg?v=1750126365867,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250610_101915.jpg?v=1750126118487"
+          },
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mock1.jpg?v=1751081178870",
+            alt: "fode de noite",
+            title: "FODE DE NOITE",
+            price: "8000.00",
+            size: "110x89cm",
+            technique: "Spray e Óleo",
+            description: "Peça única",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mock1.jpg?v=1751081178870,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/conexao-6.jpg?v=1751080564403"
+          }
+        ]
+      },
+      september: {
+        title: "Lançamento Setembro 2024",
+        images: [
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mockup%20obra%20grande%202.jpg?v=1748904529547",
+            alt: "ROSTO 1",
+            title: "ROSTO 1",
+            price: "30000.00",
+            size: "320x300cm",
+            technique: "Spray e Óleo",
+            description: "Peça única",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mockup%20obra%20grande%202.jpg?v=1748904529547,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/thumb2.jpg?v=1749661963340,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/thumb1.jpeg?v=1750125451373"
+          },
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/upscalemedia-transformed-Recovered.jpg?v=1751082219017",
+            alt: "ROSTO 2",
+            title: "ROSTO 2",
+            price: "25000.00",
+            size: "280x264cm",
+            technique: "Spray e Óleo",
+            description: "Peça única",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/upscalemedia-transformed-Recovered.jpg?v=1751082219017,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20211209_164852.jpg?v=1751082213718"
+          }
+        ]
+      },
+      july: {
+        title: "Lançamento Julho 2024",
+        images: [
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mickey%20homem.jpg?v=1751083923730",
+            alt: "MIKEY HOMEM",
+            title: "MIKEY HOMEM",
+            price: "5670.00",
+            size: "64x42cm",
+            technique: "Spray e Acrílica",
+            description: "Peça única",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/mickey%20homem.jpg?v=1751083923730,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/1715286990810.jpg?v=1751083922251"
+          },
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/carnaval%201%20(2).jpeg?v=1751084222501",
+            alt: "Carnaval",
+            title: "Carnaval",
+            price: "6520.00",
+            size: "89x64cm",
+            technique: "Spray, colagem, Gis óleo",
+            description: "Peça única",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/carnaval%201%20(2).jpeg?v=1751084222501,https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/carnaval%201%20(1).jpeg?v=1751084223360"
+          }
+        ]
+      },
+      february: {
+        title: "Lançamento Fevereiro 2024",
+        images: [
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250403_123847~3.jpg?v=1750186485077",
+            alt: "AFASTO",
+            title: "AFASTO",
+            price: "7000.00",
+            size: "89x64cm",
+            technique: "Acrílico sobre tela",
+            description: "Exclusivo",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/IMG_20250403_123847~3.jpg?v=1750186485077"
+          },
+          {
+            src: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/irr7x57hc7l81-9.jpg?v=1750784265235",
+            alt: "EU E VC",
+            title: "eu e vc",
+            price: "7420.00",
+            size: "100x80cm",
+            technique: "Óleo e Spray",
+            description: "Peça de destaque",
+            thumbnails: "https://cdn.glitch.global/cae28967-cd7f-4f3d-b6ea-456895182998/irr7x57hc7l81-9.jpg?v=1750784265235"          
+          }
+        ]
+      }
+    };
+
+    // Função para obter o parâmetro da URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Atualizar a página dinamicamente
+    function updatePage() {
+      const collectionParam = getQueryParam("collection");
+      const collection = collections[collectionParam];
+
+      if (!collection) {
+        document.getElementById("page-title").textContent = "Coleção não encontrada";
+        return;
+      }
+
+      // Atualiza o título
+      document.getElementById("page-title").textContent = collection.title;
+
+      // Atualiza as imagens
+      const galleryContainer = document.getElementById("gallery-container");
+      galleryContainer.innerHTML = ""; // Limpa o conteúdo atual
+
+      collection.images.forEach(image => {
+        const galleryItem = document.createElement("div");
+        galleryItem.classList.add("gallery-item");
+
+        // Gerar URL dinâmica para a obra
+        const obraURL = `obra.html?title=${encodeURIComponent(image.title)}&price=${encodeURIComponent(image.price)}&size=${encodeURIComponent(image.size)}&technique=${encodeURIComponent(image.technique)}&description=${encodeURIComponent(image.description)}&image=${encodeURIComponent(image.src)}&thumbnails=${encodeURIComponent(image.thumbnails)}&availability=sold_out`;
+
+        galleryItem.innerHTML = `
+          <a href="${obraURL}">
+            <img src="${image.src}" alt="${image.alt}">
+          </a>
+          <p class="title">${image.title}</p>
+        `;
+        galleryContainer.appendChild(galleryItem);
+      });
+    }
+
+    // Executa a atualização ao carregar a página
+    updatePage();
+  </script>
+</body>
+</html>
