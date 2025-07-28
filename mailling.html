@@ -1,173 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter - Andre Calegari</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro na Lista de Mailing</title>
   <style>
-    /* Reset e estilos básicos */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background-color: #111; /* Fundo preto */
-      color: #fff; /* Texto branco */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: sans-serif;
+      background: #fafafa;
       padding: 2rem;
-    }
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 1rem;
-      background-color: #222;
-      text-align: center;
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: bold;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
     }
 
-    .home-link {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #555;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    .home-link:hover {
-      background-color: #777;
-    }
-
-    .container {
-      background-color: #222;
+    form {
+      background: white;
       padding: 2rem;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-width: 400px;
       width: 100%;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      color: #bbb;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    input[type="email"], input[type="text"], button {
+    input[type="text"], input[type="email"] {
+      width: 100%;
       padding: 0.8rem;
-      font-size: 1rem;
-      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background: black;
+      color: white;
+      padding: 0.8rem;
+      width: 100%;
       border: none;
-    }
-
-    input[type="email"], input[type="text"] {
-      background-color: #333;
-      color: #fff;
-    }
-
-    input[type="email"]:focus, input[type="text"]:focus {
-      outline: none;
-      border: 2px solid #555;
-    }
-
-    button {
-      background-color: #555;
-      color: #fff;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #777;
     }
 
     .success-message {
-      margin-top: 1rem;
-      color: #4caf50;
+      text-align: center;
       display: none;
-      font-size: 1rem;
+      margin-top: 2rem;
     }
 
-    .error-message {
-      margin-top: 1rem;
-      color: #e53935;
-      display: none;
-      font-size: 1rem;
+    .success-message img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        padding: 1rem;
+      }
     }
   </style>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
-  <header>
-    <div>mr. calegari</div>
-    <a href="index.html" class="home-link">Voltar para a Home</a>
-  </header>
-  <div class="container">
-    <h1>Assine Nossa Newsletter</h1>
-    <p>Receba atualizações e novidades diretamente no seu e-mail!</p>
-    <form id="newsletter-form">
-      <input type="text" id="name" placeholder="Seu Nome" required>
-      <input type="email" id="email" placeholder="Seu E-mail" required>
-      <button type="submit">Inscrever-se</button>
-    </form>
-    <div class="success-message" id="success-message">Assinatura realizada com sucesso!</div>
-    <div class="error-message" id="error-message">Erro ao enviar, tente novamente.</div>
+
+  <form id="mailingForm" action="https://SEU-US.mailchimp.com/subscribe/post?u=XXX&amp;id=YYY" method="post" target="_blank" novalidate>
+    <h2>Entre na minha lista VIP</h2>
+    <input type="text" name="FNAME" placeholder="Seu nome" id="nome" required />
+    <input type="email" name="EMAIL" placeholder="Seu e-mail" id="email" required />
+    <input type="submit" value="Cadastrar" />
+  </form>
+
+  <div class="success-message" id="successMessage">
+    <img src="URL-DA-SUA-FOTO.jpg" alt="Imagem do artista" />
+    <p>Cadastro realizado com sucesso! Você será redirecionado em instantes...</p>
   </div>
 
   <script>
-    // Inicializa EmailJS
-    emailjs.init('ZhERp9-jIzfsEcXjT'); // Substitua 'SEU_USER_ID' pelo ID do usuário do EmailJS
-
-    const form = document.getElementById('newsletter-form');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
+    const form = document.getElementById('mailingForm');
+    const successDiv = document.getElementById('successMessage');
 
     form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita recarregar a página ao enviar o formulário
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      
-      emailjs.send("service_pkalpum","template_yogbgk5",{
-        name: name,
-        title: "testes",
-        email: email,
-      }).then(function(response) {
-        successMessage.style.display = 'block';
-        errorMessage.style.display = 'none';
-      }, function(error) {
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'block';
-      });
+      if (!nome || !email) {
+        alert("Preencha todos os campos.");
+        event.preventDefault();
+        return;
+      }
+
+      // Aguardar o envio pelo Mailchimp
+      setTimeout(() => {
+        form.style.display = "none";
+        successDiv.style.display = "block";
+
+        // Redirecionar após 4 segundos
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 4000);
+      }, 500);
     });
   </script>
+
 </body>
 </html>
