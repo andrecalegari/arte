@@ -1,105 +1,174 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cadastro na Lista de Mailing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsletter - mr. calegari</title>
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
   <style>
     body {
-      font-family: sans-serif;
-      background: #fafafa;
-      padding: 2rem;
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      padding: 1rem;
     }
 
-    form {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
+    .logo {
+      text-decoration: none;
+      color: #fff;
     }
 
-    input[type="text"], input[type="email"] {
-      width: 100%;
-      padding: 0.8rem;
+    .logo h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
     }
 
-    input[type="submit"] {
-      background: black;
-      color: white;
-      padding: 0.8rem;
-      width: 100%;
+    .back-button {
+      background: none;
       border: none;
-      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: left;
+      margin-top: -0.5rem;
+    }
+
+    #mc_embed_signup {
+      background: #222;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    #mc_embed_signup h2 {
+      color: #fff;
+    }
+
+    #mc_embed_signup .mc-field-group label,
+    #mc_embed_signup .indicates-required {
+      color: #ccc;
+    }
+
+    #mc_embed_signup input[type="email"],
+    #mc_embed_signup input[type="text"] {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 4px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    #mc_embed_signup .button {
+      background-color: #555;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
       cursor: pointer;
     }
 
+    #mc_embed_signup .button:hover {
+      background-color: #777;
+    }
+
     .success-message {
-      text-align: center;
       display: none;
+      color: #4caf50;
       margin-top: 2rem;
     }
 
     .success-message img {
-      width: 100px;
+      max-width: 100px;
       border-radius: 50%;
       margin-bottom: 1rem;
-    }
-
-    @media (max-width: 500px) {
-      form {
-        padding: 1rem;
-      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <a href="index.html" class="logo"><h1>mr. calegari</h1></a>
+    <button class="back-button" onclick="history.back()">← Voltar</button>
+  </header>
 
-  <form id="mailingForm" action="https://SEU-US.mailchimp.com/subscribe/post?u=XXX&amp;id=YYY" method="post" target="_blank" novalidate>
-    <h2>Entre na minha lista VIP</h2>
-    <input type="text" name="FNAME" placeholder="Seu nome" id="nome" required />
-    <input type="email" name="EMAIL" placeholder="Seu e-mail" id="email" required />
-    <input type="submit" value="Cadastrar" />
-  </form>
+  <div id="mc_embed_signup">
+    <form action="https://wixsite.us10.list-manage.com/subscribe/post?u=6ceca812d007f0805b1c7f542&amp;id=3cc3216dea&amp;f_id=0050cde3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" onsubmit="return handleMailchimpSubmit(event)">
+      <div id="mc_embed_signup_scroll">
+        <h2>Fique por dentro das pinturas mais recentes em primeira mão</h2>
+        <div class="indicates-required"><span class="asterisk">*</span> indica obrigatório</div>
+        <div class="mc-field-group">
+          <label for="mce-FNAME">Nome </label>
+          <input type="text" name="FNAME" class="text" id="mce-FNAME" required>
+        </div>
+        <div class="mc-field-group">
+          <label for="mce-EMAIL">Endereço de e-mail <span class="asterisk">*</span></label>
+          <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required>
+        </div>
+        <div id="mce-responses" class="clear foot">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_6ceca812d007f0805b1c7f542_3cc3216dea" tabindex="-1" value="">
+        </div>
+        <div class="optionalParent">
+          <div class="clear foot">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Cadastrar">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
-  <div class="success-message" id="successMessage">
-    <img src="URL-DA-SUA-FOTO.jpg" alt="Imagem do artista" />
-    <p>Cadastro realizado com sucesso! Você será redirecionado em instantes...</p>
+  <div class="success-message" id="success-msg">
+    <img src="sua-foto.jpg" alt="Foto pessoal">
+    <p>Cadastro realizado com sucesso!</p>
   </div>
 
   <script>
-    const form = document.getElementById('mailingForm');
-    const successDiv = document.getElementById('successMessage');
+    function handleMailchimpSubmit(e) {
+      const name = document.getElementById('mce-FNAME').value;
+      const email = document.getElementById('mce-EMAIL').value;
 
-    form.addEventListener('submit', function(event) {
-      const nome = document.getElementById('nome').value.trim();
-      const email = document.getElementById('email').value.trim();
-
-      if (!nome || !email) {
-        alert("Preencha todos os campos.");
-        event.preventDefault();
-        return;
+      if (!name || !email) {
+        alert("Por favor, preencha todos os campos.");
+        return false;
       }
 
-      // Aguardar o envio pelo Mailchimp
       setTimeout(() => {
-        form.style.display = "none";
-        successDiv.style.display = "block";
-
-        // Redirecionar após 4 segundos
+        document.getElementById('mc_embed_signup').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
         setTimeout(() => {
-          window.location.href = '/';
+          window.location.href = "index.html";
         }, 4000);
-      }, 500);
-    });
+      }, 2000);
+
+      return true;
+    }
   </script>
 
+  <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 </body>
 </html>
