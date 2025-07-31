@@ -1,174 +1,162 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Newsletter - mr. calegari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastre-se na Lista</title>
   <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
   <style>
     body {
-      font-family: Helvetica, Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #fafafa;
       text-align: center;
     }
 
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem;
-    }
-
-    .logo {
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .logo h1 {
-      font-size: 2.5rem;
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
+      letter-spacing: 1.5px;
     }
 
-    .back-button {
-      background: none;
-      border: none;
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #000;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .error {
+      color: #d00;
+      font-size: 0.85rem;
+      margin-top: -15px;
+      margin-bottom: 15px;
+    }
+
+    button, #mc-embedded-subscribe {
+      width: 100%;
+      padding: 14px;
+      background-color: #000;
       color: #fff;
+      border: none;
+      border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      text-align: left;
-      margin-top: -0.5rem;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
     }
 
-    #mc_embed_signup {
-      background: #222;
-      padding: 2rem;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 600px;
-    }
-
-    #mc_embed_signup h2 {
-      color: #fff;
-    }
-
-    #mc_embed_signup .mc-field-group label,
-    #mc_embed_signup .indicates-required {
-      color: #ccc;
-    }
-
-    #mc_embed_signup input[type="email"],
-    #mc_embed_signup input[type="text"] {
+    button:hover, #mc-embedded-subscribe:hover {
       background-color: #333;
-      color: #fff;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 4px;
-      width: 100%;
-      margin-bottom: 1rem;
     }
 
-    #mc_embed_signup .button {
-      background-color: #555;
-      color: #fff;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    #mc_embed_signup .button:hover {
-      background-color: #777;
-    }
-
-    .success-message {
+    .success {
       display: none;
-      color: #4caf50;
-      margin-top: 2rem;
+      text-align: center;
     }
 
-    .success-message img {
-      max-width: 100px;
+    .success img {
+      width: 100px;
       border-radius: 50%;
-      margin-bottom: 1rem;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo"><h1>mr. calegari</h1></a>
-    <button class="back-button" onclick="history.back()">← Voltar</button>
-  </header>
 
-  <div id="mc_embed_signup">
-    <form action="https://wixsite.us10.list-manage.com/subscribe/post?u=6ceca812d007f0805b1c7f542&amp;id=3cc3216dea&amp;f_id=0050cde3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" onsubmit="return handleMailchimpSubmit(event)">
-      <div id="mc_embed_signup_scroll">
-        <h2>Fique por dentro das pinturas mais recentes em primeira mão</h2>
-        <div class="indicates-required"><span class="asterisk">*</span> indica obrigatório</div>
-        <div class="mc-field-group">
-          <label for="mce-FNAME">Nome </label>
-          <input type="text" name="FNAME" class="text" id="mce-FNAME" required>
-        </div>
-        <div class="mc-field-group">
-          <label for="mce-EMAIL">Endereço de e-mail <span class="asterisk">*</span></label>
-          <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required>
-        </div>
-        <div id="mce-responses" class="clear foot">
-          <div class="response" id="mce-error-response" style="display:none"></div>
-          <div class="response" id="mce-success-response" style="display:none"></div>
-        </div>
-        <div aria-hidden="true" style="position: absolute; left: -5000px;">
-          <input type="text" name="b_6ceca812d007f0805b1c7f542_3cc3216dea" tabindex="-1" value="">
-        </div>
-        <div class="optionalParent">
-          <div class="clear foot">
-            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Cadastrar">
-          </div>
-        </div>
-      </div>
+  <div class="container" id="form-container">
+    <h1>mr. calegari</h1>
+    <form action="https://wixsite.us10.list-manage.com/subscribe/post?u=6ceca812d007f0805b1c7f542&amp;id=3cc3216dea&amp;f_id=0050cde3f0" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      
+      <label for="mce-FNAME">Nome:</label>
+      <input type="text" name="FNAME" id="mce-FNAME" required>
+      <div class="error" id="name-error"></div>
+
+      <label for="mce-EMAIL">E-mail:</label>
+      <input type="email" name="EMAIL" id="mce-EMAIL" required>
+      <div class="error" id="email-error"></div>
+
+      <input type="submit" value="Cadastrar" name="subscribe" id="mc-embedded-subscribe">
     </form>
   </div>
 
-  <div class="success-message" id="success-msg">
-    <img src="sua-foto.jpg" alt="Foto pessoal">
-    <p>Cadastro realizado com sucesso!</p>
+  <div class="container success" id="success-message">
+    <h1>Cadastrado com sucesso!</h1>
+    <p>Obrigado por se inscrever.</p>
+    <img src="sua-foto.jpg" alt="André Calegari" />
   </div>
 
   <script>
-    function handleMailchimpSubmit(e) {
-      const name = document.getElementById('mce-FNAME').value;
-      const email = document.getElementById('mce-EMAIL').value;
+    const form = document.getElementById("mc-embedded-subscribe-form");
+    const nameInput = document.getElementById("mce-FNAME");
+    const emailInput = document.getElementById("mce-EMAIL");
+    const nameError = document.getElementById("name-error");
+    const emailError = document.getElementById("email-error");
+    const formContainer = document.getElementById("form-container");
+    const successMessage = document.getElementById("success-message");
 
-      if (!name || !email) {
-        alert("Por favor, preencha todos os campos.");
-        return false;
+    form.addEventListener("submit", function (e) {
+      nameError.textContent = "";
+      emailError.textContent = "";
+
+      if (!nameInput.value.trim()) {
+        nameError.textContent = "Por favor, preencha o nome.";
+        e.preventDefault();
+        return;
       }
 
-      setTimeout(() => {
-        document.getElementById('mc_embed_signup').style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 4000);
-      }, 2000);
+      if (!emailInput.value.trim()) {
+        emailError.textContent = "Por favor, preencha o e-mail.";
+        e.preventDefault();
+        return;
+      }
 
-      return true;
-    }
+      // Mostrar tela de sucesso e redirecionar após envio
+      formContainer.style.display = "none";
+      successMessage.style.display = "block";
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 5000);
+    });
   </script>
 
-  <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 </body>
 </html>
