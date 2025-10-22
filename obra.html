@@ -137,6 +137,11 @@
       margin: 1rem 0;
     }
 
+    .text-section .description {
+      font-size: 1rem;
+      margin: 1rem 0;
+    }
+
     .buttons {
       display: flex;
       flex-direction: column;
@@ -237,9 +242,9 @@
     </div>
     <a href="javascript:history.back()" class="back-button">← Voltar</a>
   </header>
-  <!--<div class="alert-banner">
-    🛑 Última semana — peça única. Disponível até 30/07.
-  </div>-->
+  <div class="alert-banner">
+    🛑 Última semana — peça única. Disponível até 31/107.
+  </div>
   <div class="container">
     <!-- Section da imagem principal -->
     <div class="image-section">
@@ -256,6 +261,7 @@
         <a href="https://wa.me/5511980562473" onclick="pintrk('track', 'BotaoWhatsApp');" id="buy-button" target="_blank">Comprar</a>
       </div>
       <p class="details">Técnica e Tamanho Padrão</p>
+      <p class="description">Descrição Padrão</p>
       <details style="margin-top: 1rem;">
         <summary style="font-weight: bold; cursor: pointer; color: #fff;">Envio</summary>
         <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #bbb;">
@@ -294,6 +300,8 @@
       document.querySelector('.text-section h1').textContent = params.title;
       document.querySelector('.text-section .price').textContent = params.price;
       document.querySelector('.text-section .details').textContent = `${params.technique}, ${params.size}`;
+      document.querySelector('.text-section .description').textContent = `${params.description}, ${params.description}`;
+
       const mainImage = document.getElementById('main-image');
       mainImage.src = params.image;
 
